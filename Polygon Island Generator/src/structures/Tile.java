@@ -9,7 +9,7 @@ import island.Biome;
 
 public class Tile {
 
-	public double elevation;
+	public double elevation, area;
 	public Biome biome;
 	public Vertex[] vertices;
 	public Border[] borders;
@@ -26,6 +26,7 @@ public class Tile {
 
 		neighbors = new HashSet<>();
 		borders = new Border[poly.edges.length];
+		area = poly.getArea();
 
 	}
 
@@ -38,7 +39,8 @@ public class Tile {
 			g.setColor(new Color(0, (int) (255 * elevation), 0));
 			break;
 		case SNOW:
-			g.setColor(new Color(255, 255, 255));
+			float c = (float) Math.min(elevation + 0.3, 1);
+			g.setColor(new Color(c, c, c));
 			break;
 		case BEACH:
 			g.setColor(new Color(238, 214, 175));

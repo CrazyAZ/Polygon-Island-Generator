@@ -35,7 +35,7 @@ public class IslandGenerator {
 		this.seed = seed;
 		polygonGenerator = new PolygonGenerator(x, y, w, h, 4000, 2, new Random(seed));
 		convertPolygons();
-		elevationGenerator = new ElevationGenerator(tiles, x, y, w, h, new Random(seed));
+		elevationGenerator = new ElevationGenerator(tiles, x, y, w, h, this, new Random(seed));
 		convertEdges();
 		terrainGenerator = new TerrainGenerator(tiles, borders, new Random(seed));
 	}

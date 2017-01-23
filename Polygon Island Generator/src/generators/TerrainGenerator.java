@@ -84,8 +84,8 @@ public class TerrainGenerator {
 				else
 					t.biome = Biome.LAND;
 				for (Vertex v : t.vertices)
-					if (v.biome == null)
-						v.biome = t.biome;
+					// if (v.biome == null)
+					v.biome = t.biome;
 				landTiles.add(t);
 			}
 	}
@@ -94,14 +94,20 @@ public class TerrainGenerator {
 
 		ArrayList<Vertex> landVertices = new ArrayList<>();
 		ArrayList<Vertex> highVertices = new ArrayList<>();
-		for (Tile t : landTiles)
+		double snowArea = 0;
+		for (Tile t : landTiles) {
 			for (Vertex v : t.vertices) {
 				if (v.biome != Biome.COAST) {
 					landVertices.add(v);
-					if (v.elevation > SNOW_LINE)
+					if (v.biome == Biome.SNOW)
 						highVertices.add(v);
+
 				}
 			}
+
+			if (t.biome == Biome.SNOW)
+				snowArea += t.area;
+		}
 
 		for (Vertex v : landVertices) {
 			for (Border b : borders) {
@@ -113,7 +119,7 @@ public class TerrainGenerator {
 
 		rivers = new HashSet<>();
 		lakes = new HashSet<>();
-		for (int i = 0; i < 9; i++) {
+		for (int i = 0; i < snowArea / 1700; i++) {
 			Vertex startVertex = highVertices.get(rand.nextInt(highVertices.size()));
 			if (startVertex.steepestBorder != null)
 				rivers.add(new River(startVertex, this));
