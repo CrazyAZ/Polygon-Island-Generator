@@ -9,4 +9,4 @@ $ git clone https://github.com/CrazyAZ/Polygon-Island-Generator
 ```
 
 - Import the Polygon-Island-Generator folder into your Eclipse Workspace.
-- Run ```Main.java``` in ```Polygon Island Generator/src/control"
+- Run ```Main.java``` in ```Polygon Island Generator/src/control```
