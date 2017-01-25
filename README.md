@@ -1,6 +1,6 @@
 # Polygon Island Generator
 
-Generates a random island based on a voronoi polygon grid.
+Generates a random island based on a voronoi polygon grid.  Many ideas used in this project were found on http://www.redblobgames.com/.
 
 ### Installation
 - Download the repository.
