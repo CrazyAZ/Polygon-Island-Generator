@@ -1,0 +1,5 @@
+package island;
+
+public enum Biome {
+	OCEAN, LAKE, RIVER, LAND, COAST, BEACH, FOREST, GRASSLAND, DESERT, MOUNTAIN, SNOW;
+}

@@ -17,7 +17,7 @@ public class TerrainGenerator {
 	public HashSet<River> rivers;
 	public HashSet<Lake> lakes;
 	private Random rand;
-	private double SEA_LEVEL, SNOW_LINE;
+	public static double SEA_LEVEL, SNOW_LINE;
 
 	public TerrainGenerator(HashSet<Tile> tiles, HashSet<Border> borders, Random rand) {
 		this.tiles = tiles;
